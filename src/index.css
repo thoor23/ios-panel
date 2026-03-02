@@ -1,0 +1,354 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 5% 96%;
+    --foreground: 220 15% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 15% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 15% 12%;
+
+    --primary: 211 100% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 220 15% 12%;
+
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
+
+    --accent: 220 14% 96%;
+    --accent-foreground: 220 15% 12%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 0 0% 0% / 0;
+
+    --radius: 0.875rem;
+
+    --sidebar-background: 0 0% 100% / 0.55;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 211 100% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 14% 96%;
+    --sidebar-accent-foreground: 220 15% 12%;
+    --sidebar-border: 220 13% 95%;
+    --sidebar-ring: 211 100% 50%;
+
+    --glass-bg: 0 0% 100% / 0.65;
+    --glass-border: 0 0% 100% / 0.45;
+    --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.08);
+
+    /* macOS widget card colors */
+    --card-mint: 158 64% 92%;
+    --card-mint-icon: 158 64% 42%;
+    --card-peach: 20 100% 93%;
+    --card-peach-icon: 20 80% 52%;
+    --card-lavender: 250 80% 94%;
+    --card-lavender-icon: 250 60% 55%;
+    --card-sky: 200 90% 92%;
+    --card-sky-icon: 200 80% 48%;
+
+    /* Spotlight */
+    --spotlight-bg: 0 0% 100% / 0.82;
+    --spotlight-border: 0 0% 100% / 0.6;
+  }
+
+  .dark {
+    --background: 225 18% 7%;
+    --foreground: 0 0% 95%;
+
+    --card: 225 18% 11%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 225 18% 11%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 211 100% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 225 15% 16%;
+    --secondary-foreground: 0 0% 95%;
+
+    --muted: 225 15% 16%;
+    --muted-foreground: 220 9% 55%;
+
+    --accent: 225 15% 16%;
+    --accent-foreground: 0 0% 95%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 95%;
+
+    --success: 142 71% 35%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 92% 40%;
+    --warning-foreground: 0 0% 100%;
+
+    --border: 225 15% 18%;
+    --input: 225 15% 18%;
+    --ring: 0 0% 0% / 0;
+
+    --sidebar-background: 225 18% 9% / 0.55;
+    --sidebar-foreground: 0 0% 90%;
+    --sidebar-primary: 211 100% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 225 15% 14%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 225 15% 16%;
+    --sidebar-ring: 211 100% 50%;
+
+    --glass-bg: 225 18% 11% / 0.65;
+    --glass-border: 225 15% 18% / 0.5;
+    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+
+    --card-mint: 158 35% 14%;
+    --card-mint-icon: 158 50% 50%;
+    --card-peach: 20 45% 14%;
+    --card-peach-icon: 20 70% 55%;
+    --card-lavender: 250 35% 16%;
+    --card-lavender-icon: 250 50% 60%;
+    --card-sky: 200 35% 14%;
+    --card-sky-icon: 200 60% 55%;
+
+    --spotlight-bg: 225 18% 12% / 0.85;
+    --spotlight-border: 225 15% 20% / 0.6;
+  }
+
+  /* No gradient = black & white theme for buttons, toggles, dock hover */
+  html[data-gradient-mode="no-gradient"] {
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --accent: 0 0% 94%;
+    --accent-foreground: 0 0% 9%;
+    --sidebar-primary: 0 0% 9%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 0 0% 94%;
+    --sidebar-accent-foreground: 0 0% 9%;
+    --sidebar-ring: 0 0% 9%;
+  }
+
+  html.dark[data-gradient-mode="no-gradient"] {
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --accent: 0 0% 18%;
+    --accent-foreground: 0 0% 98%;
+    --sidebar-primary: 0 0% 98%;
+    --sidebar-primary-foreground: 0 0% 9%;
+    --sidebar-accent: 0 0% 18%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-ring: 0 0% 98%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  *:focus {
+    outline: none !important;
+  }
+
+  *:focus-visible {
+    outline: none !important;
+    box-shadow: none !important;
+    ring: none !important;
+  }
+
+  html {
+    /* Prevent overscroll bounce on iOS for app-like feel */
+    overscroll-behavior: none;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Inter', 'Segoe UI', Roboto, sans-serif;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-right: env(safe-area-inset-right, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    padding-left: env(safe-area-inset-left, 0px);
+  }
+}
+
+@layer utilities {
+  .glass {
+    background: hsl(var(--glass-bg));
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border: 1px solid hsl(var(--glass-border));
+    box-shadow: var(--glass-shadow);
+  }
+
+  .glass-card {
+    @apply glass rounded-2xl;
+  }
+
+  .glass-strong {
+    background: hsl(0 0% 100% / 0.82);
+    backdrop-filter: blur(40px) saturate(200%);
+    -webkit-backdrop-filter: blur(40px) saturate(200%);
+    border: 1px solid hsl(0 0% 100% / 0.6);
+    box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.12);
+  }
+
+  .dark .glass-strong {
+    background: hsl(225 18% 11% / 0.85);
+    border: 1px solid hsl(225 15% 18% / 0.6);
+    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.5);
+  }
+
+  .apple-shadow {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 4px 12px rgba(0, 0, 0, 0.06);
+  }
+
+  .apple-shadow-lg {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04), 0 8px 32px rgba(0, 0, 0, 0.08);
+  }
+
+  /* macOS Sonoma wallpaper */
+  .macos-wallpaper {
+    background:
+      radial-gradient(ellipse at 20% 50%, hsl(270 80% 65% / 0.8) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 20%, hsl(200 90% 55% / 0.7) 0%, transparent 50%),
+      radial-gradient(ellipse at 60% 80%, hsl(330 70% 60% / 0.6) 0%, transparent 50%),
+      radial-gradient(ellipse at 30% 20%, hsl(180 70% 50% / 0.5) 0%, transparent 50%),
+      radial-gradient(ellipse at 70% 60%, hsl(220 90% 60% / 0.4) 0%, transparent 50%),
+      linear-gradient(135deg, hsl(270 60% 30%) 0%, hsl(200 80% 25%) 50%, hsl(330 50% 30%) 100%);
+  }
+
+  /* macOS Sequoia dashboard gradient — richer, more vibrant */
+  .dashboard-gradient {
+    background:
+      radial-gradient(ellipse at 0% 0%, hsl(270 70% 85% / 0.5) 0%, transparent 45%),
+      radial-gradient(ellipse at 100% 0%, hsl(190 70% 85% / 0.4) 0%, transparent 45%),
+      radial-gradient(ellipse at 50% 100%, hsl(340 60% 88% / 0.35) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 60%, hsl(210 80% 90% / 0.25) 0%, transparent 40%),
+      hsl(var(--background));
+  }
+
+  .dark .dashboard-gradient {
+    background:
+      radial-gradient(ellipse at 0% 0%, hsl(270 50% 18% / 0.5) 0%, transparent 45%),
+      radial-gradient(ellipse at 100% 0%, hsl(190 40% 14% / 0.4) 0%, transparent 45%),
+      radial-gradient(ellipse at 50% 100%, hsl(340 35% 14% / 0.35) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 60%, hsl(210 40% 12% / 0.25) 0%, transparent 40%),
+      hsl(var(--background));
+  }
+
+  /* Spotlight overlay */
+  .spotlight-overlay {
+    background: hsl(0 0% 0% / 0.4);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .spotlight-panel {
+    background: hsl(var(--spotlight-bg));
+    backdrop-filter: blur(40px) saturate(200%);
+    -webkit-backdrop-filter: blur(40px) saturate(200%);
+    border: 1px solid hsl(var(--spotlight-border));
+    box-shadow:
+      0 24px 80px rgba(0, 0, 0, 0.15),
+      0 0 0 0.5px rgba(255, 255, 255, 0.1) inset;
+  }
+
+  .dark .spotlight-panel {
+    box-shadow:
+      0 24px 80px rgba(0, 0, 0, 0.5),
+      0 0 0 0.5px rgba(255, 255, 255, 0.06) inset;
+  }
+
+  /* macOS widget card */
+  .widget-card {
+    @apply glass-card;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .widget-card:hover {
+    transform: scale(1.02) translateY(-2px);
+    box-shadow:
+      0 12px 40px rgba(0, 0, 0, 0.08),
+      0 0 0 0.5px rgba(255, 255, 255, 0.15) inset;
+  }
+
+  .dark .widget-card:hover {
+    box-shadow:
+      0 12px 40px rgba(0, 0, 0, 0.3),
+      0 0 0 0.5px rgba(255, 255, 255, 0.05) inset;
+  }
+
+  /* Bottom Dock */
+  .bottom-dock {
+    background: hsl(var(--glass-bg));
+    backdrop-filter: blur(30px) saturate(200%);
+    -webkit-backdrop-filter: blur(30px) saturate(200%);
+    border: 1px solid hsl(var(--glass-border));
+    border-radius: 1.25rem;
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.1),
+      0 0 0 0.5px rgba(255, 255, 255, 0.12) inset;
+  }
+
+  .dark .bottom-dock {
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.4),
+      0 0 0 0.5px rgba(255, 255, 255, 0.05) inset;
+  }
+
+  /* Floating blob animation */
+  @keyframes float-blob {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(30px, -20px) scale(1.05); }
+    66% { transform: translate(-20px, 15px) scale(0.95); }
+  }
+
+  .animate-float {
+    animation: float-blob 20s ease-in-out infinite;
+  }
+
+  .animate-float-delayed {
+    animation: float-blob 25s ease-in-out infinite;
+    animation-delay: -8s;
+  }
+
+  .animate-float-slow {
+    animation: float-blob 30s ease-in-out infinite;
+    animation-delay: -15s;
+  }
+
+  @keyframes progress-fill {
+    0% { width: 0%; }
+    100% { width: 100%; }
+  }
+
+  .animate-progress {
+    animation: progress-fill 2.2s ease-in-out forwards;
+  }
+}
+
+/* Hide native number input spinners globally */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
